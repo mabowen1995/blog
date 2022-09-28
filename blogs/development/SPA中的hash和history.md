@@ -1,10 +1,11 @@
 ---
-title: SPA中的hash和history
+title: SPA中的 hash 和 history
 date: 2022-04-23
 categories:
  - 项目开发
 tags:
  - Vue
+ - bug相关
 sidebar: auto
 ---
 

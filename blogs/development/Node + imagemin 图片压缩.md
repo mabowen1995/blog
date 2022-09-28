@@ -10,9 +10,9 @@ sidebar: auto
 
 > "imagemin": "^7.0.1",
   "imagemin-mozjpeg": "^8.0.0",
-  "imagemin-pngquant": "^9.0.2",
+  "imagemin-pngquant": "^9.0.2"
 
-images 插件在只能将 png 格式压缩为 jpg 格式，而 TinyJPG 插件有免费额度限制，并且最主要的是需要将图片上传至 TinyJPG 服务器进行压缩，因此最终选择了使用 imagemin 插件进行压缩。
+目前nodejs比较常用的免费图片压缩软件有三款：images、TinyJPG、imagemin。其中 images 插件在只能将 png 格式压缩为 jpg 格式，而 TinyJPG 插件有免费额度限制，并且最主要的是需要将图片上传至 TinyJPG 服务器进行压缩，因此最终选择了使用 imagemin 插件进行压缩。
 
 如果对压缩质量要求较高建议使用TinyJPG，imagemin实测压缩后色彩上有些许失真。
 

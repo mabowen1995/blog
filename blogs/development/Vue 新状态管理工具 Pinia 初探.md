@@ -2,7 +2,7 @@
 title: Vue 新状态管理工具 Pinia 初探
 date: 2022-04-25
 categories:
- - 行业杂谈
+ - 项目开发
 tags:
  - Vue
 sidebar: auto
