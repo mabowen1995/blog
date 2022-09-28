@@ -4,6 +4,10 @@ module.exports = {
   theme: 'reco',
   themeConfig: {
     type: 'blog',
+    author: 'Mabowen',
+    record: '辽ICP备2022003747号-1',
+    recordLink: 'https://beian.miit.gov.cn/',
+    startYear: '2018',
     nav: [
       {
         text: '主页',
@@ -28,9 +32,20 @@ module.exports = {
     },
     logo: '/avatar.jpg',
     authorAvatar: '/avatar.jpg',
-    noFoundPageByTencent: false
+    noFoundPageByTencent: false,
+    valineConfig: {
+      appId: '...',// your appId
+      appKey: '...', // your appKey
+    }
   },
   head: [
     ['link', { rel: 'icon', href: '/avatar.jpg' }]
-  ]
+  ],
+  plugins: [['@vuepress-reco/comments', {
+    solution: 'valine',
+    options: {
+      appId: 'MvZhG7RpKfUxEzQ3QyZVfSQm-gzGzoHsz',
+      appKey: 'vuOZhBlXD1gUMH63LCTzWz4s',
+    }
+  }]] 
 }
