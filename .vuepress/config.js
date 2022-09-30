@@ -32,17 +32,14 @@ module.exports = {
     },
     logo: '/avatar.jpg',
     authorAvatar: '/avatar.jpg',
-    noFoundPageByTencent: false
+    noFoundPageByTencent: false,
+    valineConfig: {
+      appId: 'MvZhG7RpKfUxEzQ3QyZVfSQm-gzGzoHsz',
+      appKey: 'vuOZhBlXD1gUMH63LCTzWz4s',
+    }
   },
   head: [
     ['link', { rel: 'icon', href: '/avatar.jpg' }],
     ['script', { src: '/sakuraPlus.js' }]
-  ],
-  plugins: [['@vuepress-reco/comments', {
-    solution: 'valine',
-    options: {
-      appId: 'MvZhG7RpKfUxEzQ3QyZVfSQm-gzGzoHsz',
-      appKey: 'vuOZhBlXD1gUMH63LCTzWz4s',
-    }
-  }]] 
+  ]
 }
