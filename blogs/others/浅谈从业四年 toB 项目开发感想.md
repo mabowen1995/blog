@@ -2,7 +2,7 @@
 title: 浅谈从业四年 toB 项目开发感想
 date: 2022-09-28
 categories:
- - 行业杂谈
+ - 行业浅谈
 sidebar: auto
 sticky: 1
 ---

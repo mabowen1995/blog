@@ -2,7 +2,7 @@
 title: svelte 与虚拟DOM
 date: 2022-04-24
 categories:
- - 行业杂谈
+ - 行业浅谈
 tags:
  - svelte
 sidebar: auto
