@@ -1,17 +1,18 @@
 ---
-title: Vue3 + ts + elementUI + vue-i18n 国际化
+title: Vue3 + ts + ElementUI + vue-i18n 国际化
 date: 2022-10-18
 categories:
  - 项目开发
 tags:
  - Vue
  - bug相关
+ - 国际化
 sidebar: auto
 ---
 
 ## 一、安装与配置
 
-国际化分为两部分，一部分是页面文言国际化，一部分是组件文言国际化，其中页面文言国际化需要使用到插件 vue-i18n，组件文言国际化参考 elementUI 的指南进行配置即可。
+国际化分为两部分，一部分是页面文言国际化，一部分是组件文言国际化，其中页面文言国际化需要使用到插件 vue-i18n，组件文言国际化参考 ElementUI 的[指南](https://element-plus.gitee.io/zh-CN/guide/i18n.html)进行配置即可。
 
 ### vue-i18n
 
@@ -20,6 +21,10 @@ yarn add vue-i18n
 ```
 
 在 src 下新建用来存储国际化文言的文件夹 locales 及国际化文件。
+
+- src/locales/zh-cn.ts
+- src/locales/en.ts
+- src/locales/index.ts
 
 ```ts
 // zh-cn.ts
@@ -66,7 +71,7 @@ const i18n = createI18n({
 export default i18n
 ```
 ```ts
-// main.ts
+// main.ts 中添加 app.use(i18n)
 import i18n from '@/locales'
 app.use(i18n);
 ```
@@ -84,6 +89,8 @@ console.log(i18n.global.t('buttons.login'))
 ```
 
 ### ElementUI
+
+参考 ElementUI 的指南需要在 app.vue 文件中将 router-view 标签用 el-config-provider 包裹起来。
 
 ```html
 <!-- app.vue -->
@@ -106,7 +113,7 @@ const locale = ref(localStorage.getItem('lang') === 'en' ? en : zhCn);
 
 ### 切换语言
 
-依旧是需要分别对 vue-i18n 和 elementUI 分别操作来切换语言。
+依旧是需要分别对 vue-i18n 和 ElementUI 分别操作来切换语言。
 
 ```ts
 import i18n from '@/locales';
@@ -117,7 +124,7 @@ const handleCommand = (command: 'zhCn' | 'en') => {
 }
 ```
 
-elementUI 没有选择在 store 中处理，直接切换 localstorage 即可，但需要额外监听一下 localstorage 的改变来变更 el-config-provider 的 locale 参数。
+ElementUI 我没有选择在 store 中处理，直接切换 localstorage 即可，但需要额外监听一下 localstorage 的改变来变更 el-config-provider 的 locale 参数。
 
 ```ts
 // 导出一个方法改写 localStorage.setItem 用来添加监听
@@ -131,11 +138,11 @@ export default function dispatchEventStroage() {
     signSetItem.apply(this, arguments)
   }
 }
-// 记得在 main.ts 中的 app.use(xxx) 里添加一下，此处省略
+// 记得在 main.ts 中的 app.use(xxx) 里添加一下该方法注册成全局方法，此处省略
 ```
 
 ```ts
-// app.vue 中添加事件监听来改变 locale 的值即可
+// app.vue 中添加事件监听来改变 el-config-provider 标签上 locale 的值即可
 window.addEventListener('setItemEvent', (e: any) => {
   if (e.key === 'lang') {
     locale.value = e.newValue === 'en' ? en : zhCn;
@@ -147,12 +154,12 @@ window.addEventListener('setItemEvent', (e: any) => {
 
 ### 问题一
 
-> [intlify] Detected HTML in 'xxx' message. Recommend not using HTML messages to avoid XSS.
+> warning: [intlify] Detected HTML in 'xxx' message. Recommend not using HTML messages to avoid XSS.
 
 说明文言中涉及到了<>符号，被误认为是 HTML 标签，两种解决方案：
 
 - 修改为其他符号
-- 添加配置
+- 添加如下配置
 
 ```ts
 createI18n({
@@ -162,7 +169,7 @@ createI18n({
 
 ### 问题二
 
-> You are running the esm-bundler build of vue-i18n. It is recommended to configure your bundler to explicitly replace feature flag globals with boolean literals to get proper tree-shaking in the final bundle.
+> warning: You are running the esm-bundler build of vue-i18n. It is recommended to configure your bundler to explicitly replace feature flag globals with boolean literals to get proper tree-shaking in the final bundle.
 
 需要在 vite.config.ts 添加配置。
 
