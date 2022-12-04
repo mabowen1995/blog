@@ -9,7 +9,7 @@ sidebar: auto
 ---
 
 安装
-```
+```sh
 yarn add vite-plugin-svg-icons -D
 ```
 
@@ -79,7 +79,7 @@ const svgClass = computed(() => {
 <template>
   <svg-icon name="prohect"></svg-icon>
 </template>
- 
+
 <script setup lang="ts">
 import SvgIcon from "@/components/SvgIcon.vue";
 </script>

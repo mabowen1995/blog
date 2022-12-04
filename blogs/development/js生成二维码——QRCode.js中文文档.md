@@ -14,7 +14,7 @@ sidebar: auto
 
 ## 一、安装
 
-```js
+```sh
 npm install --save qrcode
 ```
 
@@ -26,7 +26,7 @@ npm install --save qrcode
 <html>
   <body>
     <canvas id="canvas"></canvas>
-    <script src="bundle.js"></script> 
+    <script src="bundle.js"></script>
   </body>
 </html>
 ```
@@ -34,7 +34,7 @@ npm install --save qrcode
 // index.js -> bundle.js
 var QRCode = require('qrcode')
 var canvas = document.getElementById('canvas')
- 
+
 QRCode.toCanvas(canvas, 'sample text', function (error) {
   if (error) console.error(error)
   console.log('success!');
@@ -43,20 +43,20 @@ QRCode.toCanvas(canvas, 'sample text', function (error) {
 使用预编译包：
 ```html
 <canvas id="canvas"></canvas>
- 
+
 <script src="/build/qrcode.min.js"></script>
 <script>
   QRCode.toCanvas(document.getElementById('canvas'), 'sample text', function (error) {
     if (error) console.error(error)
     console.log('success!');
   })
-</script> 
+</script>
 ```
 如果通过npm安装，文件存储在node_modules/qrcode/build/folder中。
 ### 在ES6/ES7中使用
 ```js
-import QRCode from 'qrcode' 
- 
+import QRCode from 'qrcode'
+
 // With promises
 QRCode.toDataURL('I am a pony!')
   .then(url => {
@@ -65,7 +65,7 @@ QRCode.toDataURL('I am a pony!')
   .catch(err => {
     console.error(err)
   })
- 
+
 // With async/await
 const generateQR = async text => {
   try {
@@ -146,12 +146,12 @@ ABCDE|数字+字母
 分段列表可以作为对象数组传递：
 ```js
 var QRCode = require('qrcode')
- 
+
 var segs = [
   { data: 'ABCDEFG', mode: 'alphanumeric' },
   { data: '0123456', mode: 'numeric' }
 ]
- 
+
 QRCode.toDataURL(segs, function (err, url) {
   console.log(url)
 })
@@ -169,7 +169,7 @@ lib 通过可选文件提供辅助方法，您可以包含该文件，如下例�
 ```js
 var QRCode = require('qrcode')
 var toSJIS = require('qrcode/helper/to-sjis')
- 
+
 QRCode.toDataURL(kanjiString, { toSJISFunc: toSJIS }, function (err, url) {
   console.log(url)
 })
@@ -177,7 +177,7 @@ QRCode.toDataURL(kanjiString, { toSJISFunc: toSJIS }, function (err, url) {
 使用预编译包：
 ```html
 <canvas id="canvas"></canvas>
- 
+
 <script src="/build/qrcode.min.js"></script>
 <script src="/build/qrcode.tosjis.min.js"></script>
 <script>
@@ -186,7 +186,7 @@ QRCode.toDataURL(kanjiString, { toSJISFunc: toSJIS }, function (err, url) {
     if (error) console.error(error)
     console.log('success!')
   })
-</script> 
+</script>
 ```
 
 ## 六、多字节字符

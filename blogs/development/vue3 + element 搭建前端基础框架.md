@@ -1,5 +1,5 @@
 ---
-title: vue3 + element 搭建前端基础框架
+title: vue3 + element 从0到1搭建前端基础框架
 date: 2022-12-03
 categories:
  - 项目开发
@@ -184,6 +184,8 @@ export const TaskStatusMap = {
 
 较为简单参考 vue-i18n 的文档即可，不过要注意的是表单校验的文言就需要单独封装一个方法来进行配置了。而还有一种前端国际化覆盖不到的就是后台接口返回的文言，这种文言解决方案建议是处理请求头，请求头中可以携带国际化信息，后台根据请求头来返回文言，而不是通过前端 body 传参的方式。
 
+>[参考文档](http://www.ppdouble.com/blogs/development/Vue3%20+%20ts%20+%20ElementUI%20+%20vue-i18n%20%E5%9B%BD%E9%99%85%E5%8C%96.html)
+
 ### 类型文件 /models
 
 用于规范类型，也是为了规范而存在的。
@@ -197,9 +199,22 @@ export interface MetaModel {
 }
 ```
 
-### 路由 /router 和状态管理 /store
+### 路由 /router
 
-官方都有文档，略。
+路由方面官方文档也比较健全，唯一需要注意的地方就是可以添加一个匹配规则，当用户输入的路由不存在时默认跳转到首页或者错误页，而不是给用户一个报错。
+
+```ts
+{
+   path: "/:pathMatch(.*)*",
+   redirect: { name: "Home" },
+}
+```
+
+### 状态管理 /store
+
+使用了新一代状态管理 pinia，官方有文档，略。
+
+>[参考文档](http://www.ppdouble.com/blogs/development/Vue%20%E6%96%B0%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%20Pinia%20%E5%88%9D%E6%8E%A2.html)
 
 ### 样式文件 /styles
 

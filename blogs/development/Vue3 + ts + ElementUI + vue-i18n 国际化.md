@@ -16,7 +16,7 @@ sidebar: auto
 
 ### vue-i18n
 
-```
+```sh
 yarn add vue-i18n
 ```
 
@@ -176,7 +176,7 @@ createI18n({
 ```ts
 resolve: {
   alias: [
-    { 
+    {
       find: 'vue-i18n',
       replacement: resolve(__dirname, 'node_modules/vue-i18n/dist/vue-i18n.cjs.js') }
   ]
