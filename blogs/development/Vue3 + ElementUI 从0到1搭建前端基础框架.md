@@ -1,5 +1,5 @@
 ---
-title: vue3 + element 从0到1搭建前端基础框架
+title: Vue3 + ElementUI 从0到1搭建前端基础框架
 date: 2022-12-03
 categories:
  - 项目开发
