@@ -41,12 +41,12 @@ sidebar: auto
 
 一个`<Transition>`组件会生成6个 class，这6个 class 就可以理解为元素的生命周期，分别是：
 
-- 元素进入前 .text-enter-from
-- 元素进入中 .text-enter-active
-- 元素进入后 .text-enter-to
-- 元素离开前 .text-leave-from
-- 元素离开中 .text-leave-active
-- 元素离开后 .text-leave-to
+- 元素进入前 .test-enter-from
+- 元素进入中 .test-enter-active
+- 元素进入后 .test-enter-to
+- 元素离开前 .test-leave-from
+- 元素离开中 .test-leave-active
+- 元素离开后 .test-leave-to
 
 如果元素的`v-show`属性的值从`false`变为`true`，那就意味着这个元素完整执行了前进入前、进入中、进入后三个周期，反之则是后三个周期，因此对这些周期对应的 class 添加样式就可以达到想要实现的效果。
 
