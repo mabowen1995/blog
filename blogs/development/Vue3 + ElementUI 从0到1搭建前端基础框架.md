@@ -4,6 +4,7 @@ date: 2022-12-03
 categories:
  - 项目开发
 tags:
+ - 代码规范
  - Vue
 sidebar: auto
 sticky: 1
@@ -67,8 +68,6 @@ yarn add dayjs
 yarn add vue-i18n
 # 图表库，不考虑数据量级的话，该库算是非常新手友好了
 yarn add echart
-# 代码规范的库，好的规范可以让代码有更持久的生命力
-yarn add eslint
 # 支持 svg 图标的库
 yarn add vite-plugin-svg-icons -D
 yarn add fast-glob -D
@@ -192,7 +191,7 @@ export const TaskStatusMap = {
 
 ``` ts
 // 后台返回的分页数据类型
-export interface MetaModel {
+interface MetaModel {
     pageNo: number;
     pageSize: number;
     total: number;
@@ -245,6 +244,12 @@ export interface MetaModel {
 放一些全局方法，比如对数字加逗号的处理、监听 localstorage 存储等。
 
 ## 三、一些额外问题
+
+### 代码规范
+
+基础框架搭建好后，如何在后续的开发中也保证整个项目的质量就需要通过引入eslint、prettier、stylelint、husky这些代码质量规范工具来进行限制了。
+
+此本不涉及，可参考主页其他文章。
 
 ### 二次封装
 
