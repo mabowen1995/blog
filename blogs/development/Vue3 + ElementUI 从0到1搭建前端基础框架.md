@@ -7,7 +7,6 @@ tags:
  - 代码规范
  - Vue
 sidebar: auto
-sticky: 1
 ---
 
 ## 一、框架搭建

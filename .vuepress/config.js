@@ -27,7 +27,6 @@ module.exports = {
       },
       socialLinks: [
         { icon: 'reco-github', link: 'https://github.com/mabowen1995' },
-        { icon: 'reco-juejin', link: 'https://juejin.cn/user/3298190615395703' }
       ]
     },
     logo: '/avatar.jpg',
